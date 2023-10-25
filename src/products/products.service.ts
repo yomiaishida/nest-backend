@@ -38,6 +38,11 @@ export class ProductsService {
     this.products[index] = updateProduct;
   }
 
+  deleteProduct(prodId: string) {
+    const index = this.findProduct(prodId)[1];
+    this.products.splice(index, 1);
+  }
+
   private findProduct(id: string): [Product, number] {
     const productIndex = this.products.findIndex((prod) => prod.id === id);
     const product = this.products[productIndex];
